@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Happy Birthday Shasa ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Cambria, Cochin', Georgia, Times, Times New Roman, serif;
+      color: #5b3548;
+      background:
+  linear-gradient(135deg, #eee4ff, #fff9d6, #d9c2ff);
+      overflow-x: hidden;
+    }
+
+    /* =========================
+       OPENING
+    ========================= */
+
+    #opening {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 25px;
+    }
+
+    .opening-card {
+      width: 100%;
+      max-width: 450px;
+      text-align: center;
+      padding: 35px 25px;
+      background: rgba(255,255,255,0.85);
+      border-radius: 30px;
+      box-shadow: 0 20px 50px rgba(100,50,80,0.18);
+    }
+
+    .opening-card h1 {
+      color: #7b4bb7;
+      font-size: 25px;
+    }
+
+    .opening-card p {
+      line-height: 1.7;
+      color: #80566a;
+    }
+
+    /* SURAT */
+
+    .envelope {
+      width: 230px;
+      height: 155px;
+      margin: 35px auto;
+      background: #ff86aa;
+      border-radius: 10px;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 15px 30px rgba(200,70,110,0.25);
+      transition: 0.3s;
+    }
+
+    .envelope:hover {
+      transform: scale(1.05);
+    }
+
+    .envelope::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      border-left: 115px solid transparent;
+      border-right: 115px solid transparent;
+      border-top: 85px solid #ffb0c8;
+    }
+
+    .seal {
+      position: absolute;
+      z-index: 5;
+
+      left: 50%;
+      top: 50%;
+
+      transform: translate(-50%, -50%);
+
+      width: 48px;
+      height: 48px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: white;
+      color: #e5b93f;
+
+      border-radius: 50%;
+
+      font-size: 35px;
+
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .open-text {
+      font-weight: bold;
+      color: #e84f83;
+    }
+
+    /* =========================
+       CONTENT
+    ========================= */
+
+    #content {
+      display: none;
+    }
+
+    .section {
+      max-width: 850px;
+      margin: auto;
+      padding: 55px 18px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.88);
+      border-radius: 28px;
+      padding: 30px 25px;
+      text-align: center;
+
+      box-shadow:
+        0 15px 40px rgba(100,50,80,0.14);
+    }
+
+    /* =========================
+       BIRTHDAY
+    ========================= */
+
+    .birthday-icon {
+      font-size: 30px;
+    }
+
+    .birthday-title {
+      font-size: clamp(40px, 10vw, 70px);
+      color: #7b4bb7;
+      margin: 15px 0;
+    }
+
+    .name {
+      font-size: 35px;
+      color: #cf4274;
+    }
+
+    .date {
+      font-size: 15px;
+      color: #e5b93f;
+    }
+
+    /* =========================
+       TEXT
+    ========================= */
+
+    .message {
+      text-align: Georgia;
+
+      background: #fff7fa;
+
+      border-left: 5px solid #d48491;
+
+      padding: 20px;
+
+      border-radius: 15px;
+
+      line-height: 1.8;
+
+      margin-top: 25px;
+
+      white-space: pre-line;
+    }
+
+    /* =========================
+       VIDEO
+    ========================= */
+
+    .video-box {
+      margin-top: 20px;
+    }
+
+    video {
+      width: 100%;
+
+      max-height: 600px;
+
+      border-radius: 20px;
+
+      background: #111;
+
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    /* =========================
+       GALLERY
+    ========================= */
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 4px solid white;
+  box-shadow: 0 7px 20px rgba(0,0,0,0.12);
+  transition: 0.3s;
+}
+
+    /* =========================
+       THANK YOU
+    ========================= */
+
+    .thankyou {
+      font-size: 50px;
+    }
+
+    .heart-big {
+      font-size: 50px;
+      animation: heartbeat 1.3s infinite;
+    }
+
+    @keyframes heartbeat {
+
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.15);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+
+    }
+
+    /* =========================
+       FLOATING HEART
+    ========================= */
+
+    .heart {
+      position: fixed;
+
+      top: -50px;
+
+      z-index: 100;
+
+      pointer-events: none;
+
+      animation:
+        falling linear forwards;
+    }
+
+    @keyframes falling {
+
+      from {
+        transform:
+          translateY(0)
+          rotate(0deg);
+
+        opacity: 1;
+      }
+
+      to {
+        transform:
+          translateY(110vh)
+          rotate(360deg);
+
+        opacity: 0;
+      }
+
+    }
+
+    /* =========================
+       BUTTON
+    ========================= */
+
+    .button {
+      border: none;
+
+      padding: 14px 25px;
+
+      border-radius: 50px;
+
+      background: #ec5b8b;
+
+      color: white;
+
+      font-size: 16px;
+
+      font-weight: bold;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 8px 20px rgba(236,91,139,0.3);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      text-align: center;
+
+      padding: 50px 20px 80px;
+
+      color: #000000;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 600px) {
+
+      .card {
+        padding: 25px 18px;
+      }
+
+      .birthday-title {
+        font-size: 30px;
+      }
+
+      .name {
+        font-size: 30px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+       .section {
+  position: relative;
+  padding-top: 90px;
+     }
+
+       .gambar-atas {
+       position: absolute;
+       width: 140px;
+       height: 130px;
+       object-fit: contain;
+       left: 50%;
+       top: -10px;
+       transform: translateX(-50%);
+         z-index: 5;
+     }
+
+       .section .card {
+       position: relative;
+       z-index: 2;
+     }
+      
+       .jam-realtime {
+        position: absolute;
+       top: 0px;
+       left: 50%;
+       transform: translateX(-50%);
+
+       font-size: 28px;
+       font-weight: bold;
+       color: #7b1539;
+
+       background: transparent;
+       z-index: 10;
+
+       white-space: nowrap;
+     }
+     
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BAGIAN 1 — SURAT PEMBUKA
+===================================================== -->
+
+<section id="opening">
+
+  <div class="opening-card">
+
+    <div style="font-size:27px;">
+      ⊹₊˚‧︵‿₊୨ᰔ୧₊‿︵‧˚₊⊹
+    </div>
+
+    <h1>
+      there's something for you >ᴗ< 🫵
+    </h1>
+
+    <p>
+     Surat Kecil Untuk Hari Besarmu
+     <br>
+       ·—·—————ʚɞ—————·—·
+      <br>
+        Sebelum kamu buka suratnya aku mau bilang sama kamu... kalau kamu udah bikin hari-hariku jadi lebih berwarna, terimakasih untuk segala hal yang pernah kita lalui “bersama”
+        <br>— 🎀 —
+        <br>
+        Jadi, ini ucapan terimakasih dariku dan sedikit hadiah karena telah menerimaku untuk berada disisimu... I Love You 𖹭.ᐟ
+    </p>
+
+    <div
+      class="envelope"
+      onclick="openLetter()"
+    >
+
+      <div class="seal">
+        ❀
+      </div>
+
+    </div>
+
+    <div class="open-text">
+       Klik suratnya 👆 kalau kepo sama apa yang ada di dalam 👀
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ISI WEBSITE
+===================================================== -->
+
+<main id="content">
+
+
+<!-- =====================================================
+     BAGIAN 2 — UCAPAN ULANG TAHUN
+===================================================== -->
+
+<section class="section">
+
+  <div class="card">
+
+    <div class="birthday-icon">
+     ִֶָ 𓂃˖˳·˖ ִֶָ ⋆🌷⋆ ִֶָ ˖·˳˖𓂃 ִֶָ 
+    </div>
+
+    <h1 class="birthday-title">
+      Happy Birthday 🥳
+    </h1>
+
+    <div class="name">
+      ⋆. 𐙚˚࿔ Shasa 💝 𝜗𝜚˚⋆
+    </div>
+
+    <div class="date">
+      25 September 2026
+    </div>
+
+    <!-- EDIT KATA-KATA PANJANG DI SINI -->
+
+    <div class="message">
+
+      <strong>
+         Untuk Shasa 💌
+      </strong>
+      <p></p>
+  Selamat ulang tahun cintaku !!
+      Semoga hari ini menjadi hari
+      yang penuh kebahagiaan,
+      senyum, dan kejutan kecil
+      yang menyenangkan.
+      <p></p>
+      ── ⋆⋅ 🙇 ⋅⋆ ──
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BAGIAN 3 — VIDEO PERTAMA
+===================================================== -->
+
+<section class="section">
+
+  <div class="card">
+
+    <h2>
+     ૮₍ ˶ᵔ ᵕ ᵔ˶ ₎ა
+    </h2>
+
+    <p>
+     Ini ada video untuk kamu beb 💖
+     <p></p>
+     maaf yah kalau ga bagus, aku ga sepandai orang-orang yang berbakat dalam editing —.—"
+    </p>
+
+
+    <div class="video-box">
+
+      <!--
+        MASUKKAN VIDEO PERTAMA
+        KE FOLDER assets
+
+        Nama file:
+        video1.mp4
+      -->
+
+      <video
+        controls
+        playsinline
+      >
+
+        <source
+          src="assets/video1.mp4"
+          type="video/mp4"
+        >
+
+        Browser kamu tidak mendukung video.
+
+      </video>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BAGIAN 4 — FOTO-FOTO
+===================================================== -->
+
+<section class="section">
+
+<div class="jam-realtime" id="jam">
+  00:00:00
+</div>
+
+  <div class="card">
+
+    <h2>
+      ˚⊱🪷⊰˚
+    </h2>
+
+    <p>
+      hihi, ini foto-foto yang spesial bagiku... makasih udah mau terbuka sama aku sehingga mau memberi foto-foto cantikmu padaku ˶ᵔ ᵕ ᵔ˶
+    </p>
+
+
+    <div class="gallery">
+
+      <!-- FOTO 1 -->
+      <img
+        src="assets/foto1.jpg"
+        alt="Foto 1"
+      >
+
+      <!-- FOTO 2 -->
+      <img
+        src="assets/foto2.jpg"
+        alt="Foto 2"
+      >
+
+      <!-- FOTO 3 -->
+      <img
+        src="assets/foto3.jpg"
+        alt="Foto 3"
+      >
+
+    </div>
+
+
+    <!-- =================================================
+         EDIT KATA-KATA KEDUA DI SINI
+    ================================================= -->
+
+    <div class="message">
+
+      My beautiful girl 🦋, you deserve the absolute world and i always love you. you never gave up on me and for that i am forever grateful and i will never give up on you i promise you that, i'm thankful to have a girlfriend like you
+      
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BAGIAN 5 — VIDEO KEDUA
+===================================================== -->
+
+<section class="section">
+
+  <div class="video-section">
+
+    <!-- GAMBAR DI ATAS, DI LUAR BORDER PUTIH -->
+    <img
+      src="assets/gambar2.png"
+      class="gambar-atas"
+      alt="Dekorasi"
+    >
+
+    <div class="card">
+
+      <h2>
+        *˚✩‧₊ 🎂˚༺☆༻˚🎂 ₊‧✩˚*
+      </h2>
+
+      <div class="video-box">
+
+        <video controls playsinline>
+
+          <source
+            src="assets/video2.mp4"
+            type="video/mp4"
+          >
+
+          Browser kamu tidak mendukung video.
+
+        </video>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     BAGIAN 6 — TERIMA KASIH
+===================================================== -->
+
+<section class="section">
+
+  <div class="card">
+
+    <div class="heart-big">
+     ⠳⣄💗⣠⠞
+    </div>
+
+    <!-- EDIT UCAPAN TERIMA KASIH DI SINI -->
+
+    <div class="message" style="text-align: left;">
+
+      Selamat ulang tahun untuk perempuan yang kucintai... 😚 Di hari <strong>Spesial</strong> ini, aku mau bilang, terima kasih karena kamu sudah hadir dalam duniaku 🌏. Makasih karena kehadiranmu bikin hari-hari biasa ku jadi luar biasa 🤩
+<p></p>
+      Di hari bertambahnya usiamu, Semoga kamu di beri perlindungan, dipanjangkan umur, disehatkan badan, dilancarkan semua urusan, dan dimudahkan semua cita-cita yang ingin kamu capai ✨. Semoga kamu selalu dikelilingi orang-orang baik yang tulus sayang sama kamu. Semoga <strong>"senyum itu"</strong> tidak pernah hilang dari wajahmu 😄. Semoga apa yang selama ini kamu semogakan, satu per satu terwujud. Dan semoga kamu jadi versi terbaik dari dirimu sendiri 😼, lebih bahagia dari tahun-tahun sebelumnya 💫
+      <p></p>
+      Terima kasih untuk semua kenangan yang sudah kita lewati bersama 💗. Untuk cerita-cerita random sampai tengah malam, untuk momen di mana kamu ketawa bersamaku, curhat, dan masih banyak momen-momen lainnya... 🫶 semua itu <strong>"akan aku simpan baik-baik"</strong>. Bersama kamu aku belajar bagaimana rasanya punya seseorang yang kehadirannya bikin aku semangat dalam menjalani hari-hari 😌. Setiap detik bersamamu itu berharga, dan aku tidak akan pernah melupakannya.
+<p></p>
+     Maaf kalau aku masih banyak kurangnya, masih belum bisa jadi yang terbaik buat kamu 😔. Tapi di hari ulang tahunmu ini, aku akan selalu berusaha <strong>bukin kamu bahagia</strong>. Sekali lagi, selamat ulang tahun, Shasa-ku 🙇. Semoga hari ini dan seterusnya menjadi hari yang seindah hatimu 🫵💖
+
+    </div>
+
+
+    <p
+      style="
+        margin-top:30px;
+        font-size:20px;
+      "
+    >
+
+      Happy Birthday, Shasa! 🎂
+
+    </p>
+
+    <div style="font-size:35px;">
+      🍉🍉🍉🍉🍉
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     PENUTUP
+===================================================== -->
+
+<footer>
+
+   —————
+
+  <br><br>
+
+  <small>
+    25 September, bukan surat untuk starla tapi untuk shasa yang sangat amat kucintai 🦋
+  </small>
+
+</footer>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+function openLetter() {
+
+  /*
+    Menyembunyikan surat
+  */
+
+  document.getElementById(
+    "opening"
+  ).style.display = "none";
+
+
+  /*
+    Menampilkan isi website
+  */
+
+  document.getElementById(
+    "content"
+  ).style.display = "block";
+
+
+  /*
+    Kembali ke bagian atas
+  */
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+
+  /*
+    Jalankan animasi hati
+  */
+
+  createHearts();
+
+}
+
+
+
+/*
+  Membuat hati jatuh
+*/
+
+function createHearts() {
+
+  const emojis = [
+    "🍉",
+    "🎉",
+    "🍰",
+    "🎀",
+    "✨",
+    "🌸",
+    "💐"
+  ];
+
+
+  for (
+    let i = 0;
+    i < 45;
+    i++
+  ) {
+
+    const heart =
+      document.createElement("div");
+
+
+    heart.className =
+      "heart";
+
+
+    heart.innerText =
+      emojis[
+        Math.floor(
+          Math.random() *
+          emojis.length
+        )
+      ];
+
+
+    heart.style.left =
+      Math.random() * 100 + "vw";
+
+
+    heart.style.fontSize =
+      15 +
+      Math.random() * 25 +
+      "px";
+
+
+    heart.style.animationDuration =
+      3 +
+      Math.random() * 5 +
+      "s";
+
+
+    heart.style.animationDelay =
+      Math.random() * 2 +
+      "s";
+
+
+    document.body.appendChild(
+      heart
+    );
+
+
+    setTimeout(
+      () => {
+        heart.remove();
+      },
+      9000
+    );
+
+  }
+
+function updateClock() {
+  const now = new Date();
+
+  const hours = String(now.getHours()).padStart(2, "0");
+  const minutes = String(now.getMinutes()).padStart(2, "0");
+  const seconds = String(now.getSeconds()).padStart(2, "0");
+
+  document.getElementById("jam").textContent =
+    `${hours}:${minutes}:${seconds}`;
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
+}
+
+
+</script>
+
+
+</body>
+</html>
